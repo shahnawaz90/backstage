@@ -124,6 +124,8 @@ export const Stepper = (stepperProps: StepperProps) => {
     [setFormState],
   );
 
+  const currentStep = useTransformSchemaToProps(steps[activeStep], { layouts });
+
   const handleNext = async ({
     formData = {},
   }: {
@@ -151,8 +153,6 @@ export const Stepper = (stepperProps: StepperProps) => {
     }
     setFormState(current => ({ ...current, ...formData }));
   };
-
-  const currentStep = useTransformSchemaToProps(steps[activeStep], { layouts });
 
   return (
     <>
