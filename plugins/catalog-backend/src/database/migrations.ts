@@ -23,6 +23,11 @@ export async function applyDatabaseMigrations(knex: Knex): Promise<void> {
     'migrations',
   );
 
+  const version = await knex.migrate.currentVersion({
+    directory: migrationsDir,
+  });
+  console.log(`DEBUG: CATALOG version=`, version);
+
   await knex.migrate.latest({
     directory: migrationsDir,
   });

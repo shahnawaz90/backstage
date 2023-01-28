@@ -15,7 +15,7 @@
  */
 
 const start = Date.now();
-console.log('starting');
+console.log('starting 2');
 
 const { catalogPlugin } = require('@backstage/plugin-catalog-backend');
 const {

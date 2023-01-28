@@ -75,11 +75,9 @@ async function main() {
     },
   });
 
-  console.log(
-    `DEBUG: db2.pool=`,
-    await db2.client.pool.creator().then(x => x.serialize()),
-  );
-  const data = db2.client.driver.serialize();
+  const wat = await db2.client.acquireConnection();
+  console.log(`DEBUG: wat=`, wat);
+  const data = await db2.client.pool.creator().then(x => x.serialize());
   console.log(`DEBUG: data=`, data);
 
   // await db.schema.createTable('users', table => {
